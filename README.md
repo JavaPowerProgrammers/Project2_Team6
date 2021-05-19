@@ -28,6 +28,7 @@ Required Technologies:
 	-MongoDB
 	-HTML/CSS/Javascript
 	-AJAX
+        -Spring Boot
 	-React
 	-JUnit
 	-log4j

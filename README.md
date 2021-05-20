@@ -10,7 +10,7 @@ Logging 5%
 The following are the specifications for Project 2.
 Project 2 is an HTML CHYOA game application.
 
-HTML DND Theme CHYOA Dungeon Crawl Game Web Application:
+HTML DND Theme Dungeon Crawl Game Web Application:
 
 User stories:
 	-Create character/Customize

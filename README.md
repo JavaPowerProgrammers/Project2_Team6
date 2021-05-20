@@ -30,6 +30,7 @@ Required Technologies:
 	-AJAX
         -Spring Boot
 	-React
+	-Redux
 	-JUnit
 	-log4j
 	

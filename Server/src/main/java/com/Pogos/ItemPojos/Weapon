@@ -1,0 +1,9 @@
+public class Weapon
+{
+
+    public int damage;
+    public String name;
+    public String type;
+    public String desc = "This weapon is a " + name + " that " + type + " your foes. Dealing " + d;
+
+}

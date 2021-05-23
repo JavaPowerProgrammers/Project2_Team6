@@ -1,0 +1,11 @@
+public class DnDClass
+{
+    public int Dexterity;
+    public int Strength;
+    public int Constitution;
+    public int Intelligence;
+    public int Wisdom;
+    public int Charisma;
+    public String Weapons;//might need to rename this
+    public Map<> Spells;
+}

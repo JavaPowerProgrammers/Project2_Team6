@@ -1,0 +1,60 @@
+public class Species
+{
+    //properties
+    private String name;
+    private int Dexterity;//example. elf will be 2
+    private int Strength;
+    private int Constitution;
+    private int Intelligence;
+    private int Wisdom;
+    private int Charisma;
+    private int hidden_Visibility;
+
+    //constructor
+    public Species(String name, int dex, int str, int cons,int intell, int wis, int cha, int h_vis){
+        Dexterity=dex;
+        Strength = str;
+        Constitution = cons;
+        Intelligence = intell;
+        Wisdom = wis;
+        Charisma = cha;
+        hidden_Visibility = h_vis;
+    }
+
+   // below are the getters
+    public String getName(){
+        return name;
+    }
+
+    public int getStrength(){
+        return Strength;
+    }
+
+    public int getDexterity() {
+        return Dexterity;
+    }
+
+    public int getConstitution() {
+        return Constitution;
+    }
+
+    public int getIntelligence() {
+        return Intelligence;
+    }
+
+    public int getWisdom() {
+        return Wisdom;
+    }
+
+    public int getCharisma() {
+        return Charisma;
+    }
+
+    public int getHidden_Visibility() {
+        return hidden_Visibility;
+    }
+}
+
+
+//Species elf= new Species("Elf",2,4,0);
+//Species human= new Species("Elf",2,4,0);

@@ -1,0 +1,15 @@
+public class openChest extends Action
+{
+    public Map<> inventory;
+    public String description;
+    // something todo with trap here.
+
+    //The toSTring will be the description of the chest, plus the map of its inventroy.
+    pubic String toString()
+{
+
+}
+
+
+
+}

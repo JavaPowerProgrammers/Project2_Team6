@@ -1,0 +1,55 @@
+
+
+public class PlayerCharacter
+{
+    "elf": "C://David//Project2//imgs//elf.jpg"
+
+    public PlayerCharacter(Species spes, DnDClass prof)
+    {
+        //need to initialize ALL private attributes except PCID
+        proffesion = prof;
+        race = spes;
+        Dexterity = spes.getDexterity() + prof.getDexterity();
+        Strength = spes.getStrength() + prof.getStrength();
+        Constitution = spes.getConstitution() + prof.getConstitution();
+        Intelligence = spes.getIntelligence() + prof.getIntelligence();
+        Wisdom = spes.getWisdom() + prof.getWisdom();
+        Charisma = spes.getCharisma() + prof.getCharisma();
+        visibility = spes.getHidden_Visibility();
+    }
+    //all fields need to be private
+    // have getters and setters.
+    // abstract classes that get added?
+    private String PCID;
+    private Species race;
+    private DnDClass proffesion;
+    // Player Attributes
+    private int Dexterity;
+    private int Strength;
+    private int Constitution;
+    private int Intelligence;
+    private int Wisdom;
+    private int Charisma;
+    //Player weaponss and spells
+    private Map<String key, object item> inventory;
+    private Map<> Spells;
+    private String playerName;
+    //hidden attributes
+    private int visibility;//if 1, then yes. if 0, then no.
+
+//    @java.lang.Override
+//    public java.lang.String toString() {
+//        return "PlayerCharacter{" +
+//                "race=" + race +
+//                ", proffesion=" + proffesion +
+//                ", playerName='" + playerName + '\'' +
+//                '}';
+//    }
+
+    @Override
+    public String toString()
+    {
+        return new String(playerName + " is a noble " + race + " " + proffesion + " who lives their lives " +
+                "on the edge of danger and adventure");
+    }
+}

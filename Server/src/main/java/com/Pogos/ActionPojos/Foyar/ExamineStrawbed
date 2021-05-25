@@ -1,0 +1,8 @@
+public class ExamineStrawbed
+{
+    String desc = " On the stone floor lies a ragged bed made of straw. It looks exceptionally dirty and unfit for " +
+            "civilized service. Looking closely you notice a key in the middle of the straw. Picking it up, you assume " +
+            "that this key matches the chest in the room. You doubt the goblin would be happy with your messing with " +
+            "his stuff";
+    //add key to inventory. Key's only purpose is to add a 1 time +10 roll to check to open chest
+}

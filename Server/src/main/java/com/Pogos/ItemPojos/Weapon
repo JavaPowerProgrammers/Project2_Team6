@@ -4,6 +4,12 @@ public class Weapon
     public int damage;
     public String name;
     public String type;
-    public String desc = "This weapon is a " + name + " that " + type + " your foes. Dealing " + d;
+    public String desc = "This weapon is a " + name + " that " + type + " your foes. Dealing up to" + d + " damage";
+    public Weapon(String nam, int dam, String typ)
+    {
+        damage = dam;// limited to 1d4, 1d6,1d8,1d10,1d12
+        name = nam;
+        type = typ;//slashing, blugending, peircing
+    }
 
 }

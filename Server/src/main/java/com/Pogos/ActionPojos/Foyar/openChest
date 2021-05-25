@@ -1,0 +1,26 @@
+public class openChest extends Action
+{
+    public Map<> inventory;
+    //API the scroll of burning hands(its a spell with the scroll description), API the potion of healing, and 30 gold coins
+    public String value;
+    public String Observe = "You see a 3ft wide 2ft high wooden chest sitting against a nearby wall ";
+    public String successWis = " Noticing and avoiding the trap, you are able to open the chest carefully enough to not " +
+            "trigger the fireball. Looking inside your see a few desirable items, your first loot of the day. ";
+    public String failWisfailDex = "Opening the chest carelessly was a mistake. A hidden fireball trap was rigged to the " +
+            "inside of the chest. You are hit and take fire damage. Shameful and a poor start to your advenure";
+    public String failWisSuccDex = " Despite your careless disregard for your own safety, you fling open the chest and " +
+            "narrowly dodge the fireball trap inside. Your close brush with death is offset by the goodies you see in " +
+            "front of you. It was worth the risk";
+
+    //roll a d20+wisdom
+    // something todo with trap here.
+
+    //The toSTring will be the description of the chest, plus the map of its inventroy.
+    pubic String toString()
+{
+
+}
+
+
+
+}

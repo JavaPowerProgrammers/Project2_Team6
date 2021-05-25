@@ -1,0 +1,8 @@
+public class BurnWebbing
+{
+    //Check whether the player has a torch. if no, fail, if yes, succ
+    String failDesc = " If only you had some flames able to burn these spider webs.";
+    String succDesc = " The flames from your torch quickly spread throughout the room clearing out most of the webbings." +
+            "You hear a screech from the spider, it seems both angered and in pain from your arsonic ways. ";
+    //spider takes 5 damage
+}

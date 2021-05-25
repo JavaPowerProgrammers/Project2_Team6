@@ -1,0 +1,7 @@
+public class AttackGoblin
+{
+    String desc = " Before you stands a ugly wretched creature. The foul goblin of the dungeons. Its overly large head," +
+            "sharp pointed teeth and small beady eyes shows its distain for you. It does appear frightened of you, but its" +
+            "posture and sharp rusty dagger in its hand betrays its ill intentions towards your phsyical wellbeing. You " +
+            "ready your weapons and your mind for the coming fight";
+}

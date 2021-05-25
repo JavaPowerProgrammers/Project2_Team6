@@ -1,0 +1,12 @@
+public class TalkGoblin
+{
+    String talk = "Greetings adventurer, Ive got what you need. I assume you plan on climbing up this here cliff and doing " +
+            "battle with the dragon in the next room. How about this, you give me 10 gold, and ill sell you this here rope. " +
+            "If you trade me your weapon, ill give you my maul. ";
+    String dealmade = " Wise choice, I am sure you wont regret it";
+    String highCharisma = "You know, I like you, I really do. You seem like a swell chap. Here, because you obviously cleared " +
+            "the roomed behind you. Ill give you this rope for free. If you want this maul, youll have to trade me your weapon. Fair is fair. " +
+            "hurry up now, time is money.";
+    // custom item, rope
+    // API call for maul
+}

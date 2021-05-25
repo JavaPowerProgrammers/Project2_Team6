@@ -1,0 +1,11 @@
+public class Spell
+{
+    public String name;
+    public String desc;
+    public String damage;//might have this be a dice object?
+    public Spell(String nam, String des)
+    {
+        name = nam;
+        desc = des;
+    }
+}

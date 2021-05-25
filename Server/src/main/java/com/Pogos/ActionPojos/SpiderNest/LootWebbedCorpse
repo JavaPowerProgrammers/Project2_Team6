@@ -1,0 +1,9 @@
+public class LootWebbedCorpse
+{
+    String desc = " Lying tussled on the stone floor is the corpse of a humonoid creature of some kind. As you search around" +
+            "you realize that it is too tightly wrapped to pull away any of the silk. However, next to the cadaver a scroll" +
+            " is just lying there, seeming to beckon you and use it. Along with a fair number of gold coins lying around" +
+            "just waiting to be taken by the next adventurer to pass through. ";
+    // API item acid arrow
+    // also 10 gold
+}

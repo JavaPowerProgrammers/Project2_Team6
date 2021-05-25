@@ -1,0 +1,9 @@
+public class EntranceRoom
+{
+    String desc = "Before you lies the adventurous dungeon you have chosen. To your left there is a statue that is " +
+            "practically unrecognizable. You see tracks in the mud leading into the ivy covered entryway of the dungeon. " +
+            "It is a beautiful day outside, but your purpose and dreams of fortune and fame, lie within";
+    //examine statue
+    //examine tracks
+    //enterFoyarRoom
+}

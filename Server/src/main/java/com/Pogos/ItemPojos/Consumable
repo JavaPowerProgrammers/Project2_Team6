@@ -1,0 +1,11 @@
+public class Consumable
+{
+    public String name;
+    public String desc;
+    public Consumable(String nam, String des)
+    {
+        name = nam;
+        desc = des;
+    }
+
+}

@@ -7,7 +7,7 @@ public class PlayerCharacter
     public PlayerCharacter(Species spes, DnDClass prof)
     {
         //need to initialize ALL private attributes except PCID
-        proffesion = prof;
+        profession = prof;
         race = spes;
         Dexterity = spes.getDexterity() + prof.getDexterity();
         Strength = spes.getStrength() + prof.getStrength();
@@ -20,9 +20,10 @@ public class PlayerCharacter
     //all fields need to be private
     // have getters and setters.
     // abstract classes that get added?
+    private int health;
     private String PCID;
     private Species race;
-    private DnDClass proffesion;
+    private DnDClass profession;
     // Player Attributes
     private int Dexterity;
     private int Strength;
@@ -49,7 +50,7 @@ public class PlayerCharacter
     @Override
     public String toString()
     {
-        return new String(playerName + " is a noble " + race + " " + proffesion + " who lives their lives " +
+        return new String(playerName + " is a noble " + race + " " + profession + " who lives their lives " +
                 "on the edge of danger and adventure");
     }
 }

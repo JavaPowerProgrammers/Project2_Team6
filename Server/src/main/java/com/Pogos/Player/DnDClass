@@ -1,5 +1,6 @@
 public class DnDClass
 {
+    public String className;
     public int Dexterity;
     public int Strength;
     public int Constitution;
@@ -8,4 +9,15 @@ public class DnDClass
     public int Charisma;
     public String Weapons;//might need to rename this
     public Map<> Spells;
+
+    public DnDClass(String name, int dex, int str, int cons,int intell, int wis, int cha, int h_vis) {
+        className = name;
+        Dexterity = dex;
+        Strength = str;
+        Constitution = cons;
+        Intelligence = intell;
+        Wisdom = wis;
+        Charisma = cha;
+        hidden_Visibility = h_vis;
+    }
 }

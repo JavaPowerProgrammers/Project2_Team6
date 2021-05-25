@@ -1,0 +1,9 @@
+public class EnterGoblinRoom
+{
+    String desc = " This open and spaciaous cavern is a breath of fresh air after traversing through the spider's home. " +
+            "Before you stands a 5ft tall goblin with a large maul in his hands, and a pile of rope at his feet." +
+            " He does not seem hostile currently, but " +
+            "has his eye on you. Beyond him, you see a 15ft rough cliff that leads to the next room. Perhaps you can talk " +
+            "to this goblin and ask him for his rope to assist you, or maybe even his maul. Or you could defeat him and take" +
+            "both for yourself, though this may weaken you against future foes. "
+}

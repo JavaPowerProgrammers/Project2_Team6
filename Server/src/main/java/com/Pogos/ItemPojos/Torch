@@ -1,7 +1,0 @@
-public class Torch
-{
-    String name;
-    String Desc= " This brightly lit torch illuminates the entire room you are in. As a Flameable object, " +
-            "it can burn highly flammable substances";
-    int visibility = 1;
-}

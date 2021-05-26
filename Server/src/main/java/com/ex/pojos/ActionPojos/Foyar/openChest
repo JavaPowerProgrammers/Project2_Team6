@@ -1,5 +1,4 @@
-public class openChest extends Action
-{
+public class openChest {
     public Map<> inventory;
     //API the scroll of burning hands(its a spell with the scroll description), API the potion of healing, and 30 gold coins
     public String value;
@@ -16,7 +15,7 @@ public class openChest extends Action
     // something todo with trap here.
 
     //The toSTring will be the description of the chest, plus the map of its inventroy.
-    pubic String toString()
+    --pubic String toString()
 {
 
 }

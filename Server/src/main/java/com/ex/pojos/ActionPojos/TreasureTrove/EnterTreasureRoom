@@ -1,0 +1,11 @@
+public class EnterTreasureRoom
+{
+    //Have mechanics of a STR check to try and enter the room. If failure, you fall and take 1 damage
+    String climbfail = " Despite your 'best' efforts, you we only able to climb partway when you fell 10 feet back to" +
+            "the ground. You have sprained your ankle and have taken 1 fall damage. Get good noob";
+    String climbSucc = " Huffing and puffing, you are able to pull yourself over the edge of the stone cliff. YES! You " +
+            "knew your times of swinging your sword would be handy in other situations. Carefully looking around, a large " +
+            "shiney, pile of gold catches your eye. Laying in a 4 poster bed next to the gold, lays a small Black Dragon" +
+            "wyrmling. From where you are, you cannot determine if they dragon is awake or asleep. "
+
+}

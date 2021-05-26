@@ -1,5 +1,8 @@
-public class ExamineStatue
-{
+package com.ex.pojos.ActionPojos.Entrance;
+
+import com.ex.pojos.ActionPojos.Action;
+
+public class ExamineStatue extends Action {
     String desc = " In front of you stands a marble statue of what appears to be an elven woman wearing robes. It is hard" +
             "to determine who it depicts as it is heavily damaged. You see claw marks ravaging the lower parts and acid " +
             "bubbles on the upper torso. Her left arm seems to have been broken off and lies on the ground next to her. "

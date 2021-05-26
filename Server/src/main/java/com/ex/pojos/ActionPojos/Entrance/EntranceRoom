@@ -1,4 +1,7 @@
-public class EntranceRoom
+package com.ex.pojos.ActionPojos.Entrance;
+
+import com.ex.pojos.ActionPojos.Action;
+public class EntranceRoom extends Action
 {
     String desc = "Before you lies the adventurous dungeon you have chosen. To your left there is a statue that is " +
             "practically unrecognizable. You see tracks in the mud leading into the ivy covered entryway of the dungeon. " +

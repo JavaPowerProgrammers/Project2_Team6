@@ -1,0 +1,72 @@
+package com.ex.pojos.ActionPojos.Entrance;
+
+import com.ex.pojos.ActionPojos.Action;
+import com.ex.pojos.ActionPojos.Entrance.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.List;
+
+@Document(collection = "EntranceRoomItselfs")
+public class EntranceRoomItself extends Action{
+    @Id
+    private String id;
+    private List<Action> actions;
+
+
+    //= new ArrayList<>();
+    //    (first,second,third);
+
+
+    public EntranceRoomItself() {
+    }
+
+    public EntranceRoomItself(EntranceRoom first, ExamineStatue second, ExamineTracks third, List<Action> actions) {
+        this.first = first;
+        this.second = second;
+        this.third = third;
+        this.actions = actions;
+    }
+
+    public EntranceRoom getFirst() {
+        return first;
+    }
+
+    public void setFirst(EntranceRoom first) {
+        this.first = first;
+    }
+
+    public ExamineStatue getSecond() {
+        return second;
+    }
+
+    public void setSecond(ExamineStatue second) {
+        this.second = second;
+    }
+
+    public ExamineTracks getThird() {
+        return third;
+    }
+
+    public void setThird(ExamineTracks third) {
+        this.third = third;
+    }
+
+    public List<Action> getActions() {
+        return actions;
+    }
+
+    public void setActions(List<Action> actions) {
+        this.actions = actions;
+    }
+
+    @Override
+    public String toString() {
+        return "EntranceRoomItself{" +
+                "first=" + first +
+                ", second=" + second +
+                ", third=" + third +
+                ", actions=" + actions +
+                '}';
+    }
+}

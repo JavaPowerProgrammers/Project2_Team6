@@ -1,5 +1,9 @@
 package com.ex;
 
+import com.ex.pojos.ActionPojos.Action;
+import com.ex.pojos.ActionPojos.Entrance.EntranceRoom;
+import com.ex.pojos.ActionPojos.Entrance.EntranceRoomItself;
+import com.ex.pojos.Room;
 import com.ex.pojos.User;
 import com.ex.repositories.UserMongoRepository;
 import com.ex.services.UserService;
@@ -8,11 +12,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
-public class BackendApplication {
-//	public class BackendApplication implements CommandLineRunner {
+//public class BackendApplication {
+public class BackendApplication implements CommandLineRunner {
 
 	@Autowired
 	private UserService service;
@@ -21,16 +26,23 @@ public class BackendApplication {
 		SpringApplication.run(BackendApplication.class, args);
 	}
 
-//	@Override
-//	public void run(String... args) throws Exception{
-//		User user = new User("ben", 32);
-//		service.save(user);
-//
-//		List<User> users = service.getAllUsers();
-//
-//		for(User u: users){
-//			System.out.println("User is " + u);
-//		}
-//	}
+	@Override
+	public void run(String... args) throws Exception{
+		User user = new User("ben", 32);
+		service.save(user);
+
+		List<User> users = service.getAllUsers();
+
+		for(User u: users){
+			System.out.println("User is " + u);
+		}
+		RoomFactory roomFactory = new RoomFactory();
+
+
+		List<Action> actions = new ArrayList<>();
+		EntranceRoom er = new EntranceRoom();
+		actions.add();
+		EntranceRoomItself eri = new EntranceRoomItself();
+	}
 
 }

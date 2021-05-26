@@ -16,7 +16,6 @@ public class Action {
     private String name;
     private List<HashMap<Integer, String>> roomActionsLogic;
 
-
     public Action() {
     }
 

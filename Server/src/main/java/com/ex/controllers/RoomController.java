@@ -28,4 +28,19 @@ public class RoomController {
         List<Room> rooms = service.getAllRooms();
         return new ResponseEntity(rooms, HttpStatus.OK);
     }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/Entrance")
+    public @ResponseBody ResponseEntity getEntrance(){
+        List<Room> rooms = service.getAllRooms();
+
+        Room room = null;
+
+        for(Room r: rooms){
+            if(r.getName().equals("Entrance")){
+                room = r;
+            }
+        }
+        return new ResponseEntity(room, HttpStatus.OK);
+    }
 }

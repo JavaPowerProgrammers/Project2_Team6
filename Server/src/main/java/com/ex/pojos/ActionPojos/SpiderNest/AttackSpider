@@ -1,5 +1,0 @@
-public class AttackSpider
-{
-    String desc = " Stepping lightly upon the webbings is a large spider. No spider should ever reach this size, having " +
-            "grown so large it cannot leave this room. Its mandibles click and clatter "
-}

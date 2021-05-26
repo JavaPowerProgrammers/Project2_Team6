@@ -1,9 +1,0 @@
-package com.ex.pojos;
-
-public class D20
-{
-    public int roll()
-    {
-        return Math.random()*20;
-    }
-}

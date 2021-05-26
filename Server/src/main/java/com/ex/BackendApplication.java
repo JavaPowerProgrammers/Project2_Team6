@@ -1,11 +1,6 @@
 package com.ex;
 
-import com.ex.pojos.ActionPojos.Action;
-import com.ex.pojos.ActionPojos.Entrance.EntranceRoom;
-import com.ex.pojos.ActionPojos.Entrance.EntranceRoomItself;
-import com.ex.pojos.Room;
 import com.ex.pojos.User;
-import com.ex.repositories.UserMongoRepository;
 import com.ex.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -31,18 +26,22 @@ public class BackendApplication implements CommandLineRunner {
 		User user = new User("ben", 32);
 		service.save(user);
 
-		List<User> users = service.getAllUsers();
+		//items
 
-		for(User u: users){
-			System.out.println("User is " + u);
-		}
-		RoomFactory roomFactory = new RoomFactory();
+		//weapons
 
+		//spells
 
-		List<Action> actions = new ArrayList<>();
-		EntranceRoom er = new EntranceRoom();
-		actions.add();
-		EntranceRoomItself eri = new EntranceRoomItself();
+		//DND classes
+
+		//species
+
+		//player characters
+
+		//actions
+
+		//rooms
+
 	}
 
 }

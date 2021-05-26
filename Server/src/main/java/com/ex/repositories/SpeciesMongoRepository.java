@@ -1,9 +1,9 @@
 package com.ex.repositories;
 
-import com.ex.pojos.User;
+import com.ex.pojos.player.Species;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserMongoRepository extends MongoRepository<User, String> {
+public interface SpeciesMongoRepository extends MongoRepository<Species, String> {
 }

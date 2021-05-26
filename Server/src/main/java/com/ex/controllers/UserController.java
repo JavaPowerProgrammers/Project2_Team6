@@ -25,15 +25,10 @@ public class UserController {
         this.service = userService;
     }
 
-//    @GetMapping(produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping("/hello-world")
+    @GetMapping("/Users")
     public @ResponseBody ResponseEntity getAllUsers(){
         List<User> users = service.getAllUsers();
-//        List<String> names =  users.stream()
-//                .map(User::getName)
-//                .collect(Collectors.toList());
-
         return new ResponseEntity(users, HttpStatus.OK);
     }
 }

@@ -1,26 +1,29 @@
 package com.ex.pojos.items;
 
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "Keys")
-public class Key implements Item{
+@Document(collection = "Torches")
+public class Torch implements Item{
     @Id
     private String id;
     private String name;
     private String description;
+    private String url;
     //add the below to the factory
 //    private String Desc= " This brightly lit torch illuminates the entire room you are in. As a Flameable object, " +
 //            "it can burn highly flammable substances";
     private int visibility;//this will be 1, and will be added to playercharacter
-    public Key()
+    public Torch()
     {
 
     }
-    public Key(String name, String description, int visibility)
+    public Torch(String name, String description, String url, int visibility)
     {
         this.name = name;
         this.description = description;
+        this.url = url;
         this.visibility = visibility;
     }
 
@@ -54,6 +57,16 @@ public class Key implements Item{
         this.description = description;
     }
 
+    public String getUrl()
+    {
+        return url;
+    }
+
+    public void setUrl(String url)
+    {
+        this.url = url;
+    }
+
     public int getVisibility()
     {
         return visibility;
@@ -67,10 +80,11 @@ public class Key implements Item{
     @Override
     public String toString()
     {
-        return "Key{" +
+        return "Torch{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
+                ", url='" + url + '\'' +
                 ", visibility=" + visibility +
                 '}';
     }

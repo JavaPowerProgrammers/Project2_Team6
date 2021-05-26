@@ -1,6 +1,0 @@
-public class AttackGoblin2
-{
-    String desc = " How dare you attack me traveler. I was here just like you, to loot a forgotten cave. You will pay for " +
-            "this treachery. The goblin starts swinging his maul";
-    //combat mechanics. Player receives API maul, and Custom rope and API potion of healing after this battle
-}

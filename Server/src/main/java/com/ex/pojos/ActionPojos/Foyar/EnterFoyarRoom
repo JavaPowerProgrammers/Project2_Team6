@@ -1,8 +1,0 @@
-public class EnterFoyarRoom
-{
-
-    String desc = " You enter what appears to be a normal cave. You see on the other end, what could generously" +
-            "be called a doorway leading to another room. In here, you see a small angry looking goblin, a wooden chest, a strawmat " +
-            "with rags that might be called a sheet. Lighting up the whole room, is a torch at eye level near the entryway";
-
-}

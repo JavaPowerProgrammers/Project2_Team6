@@ -4,8 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Ropes")
-public class Rope
-{
+public class Rope implements Item{
     @Id
     private String id;
     private String name;

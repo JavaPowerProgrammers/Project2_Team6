@@ -20,12 +20,15 @@ public class UserService {
         this.repository = repository;
     }
 
-    public List<User> getAllUsers(){
+    public List<User> getAllUsers() {
         return repository.findAll();
     }
 
-    public void save(User user)
-    {
+    public void save(User user) {
         repository.save(user);
+    }
+
+    public void delete(User user) {
+        repository.delete(user);
     }
 }

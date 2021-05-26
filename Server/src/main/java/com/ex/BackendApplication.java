@@ -2,7 +2,6 @@ package com.ex;
 
 import com.ex.pojos.Action;
 import com.ex.pojos.Room;
-import com.ex.pojos.User;
 import com.ex.pojos.items.*;
 import com.ex.pojos.player.DnDClass;
 import com.ex.pojos.player.PlayerCharacter;
@@ -48,55 +47,100 @@ public class BackendApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception{
-//		User user = new User("ben", 32);
-//		service.save(user);
-
 		//items
+		List<Key> keys = keyService.getAllKeys();
 		Key key = new Key(null, null, 0);
-		keyService.save(key);
 
+		if(keys.size() == 0){
+			keyService.save(key);
+		}
+
+		List<Rope> ropes = ropeService.getAllRopes();
 		Rope rope = new Rope(null, null, 0);
-		ropeService.save(rope);
 
+		if(ropes.size() == 0){
+			ropeService.save(rope);
+		}
+
+		List<Torch> torches = torchService.getAllTorches();
 		Torch torch = new Torch(null, null, null, 0);
-		torchService.save(torch);
+
+		if(torches.size() == 0){
+			torchService.save(torch);
+		}
 
 		//weapons
+		List<Weapon> weapons = weaponService.getAllWeapons();
+
 		Weapon weapon = new Weapon(null, null, null, null, null, null);
-		weaponService.save(weapon);
+
+		if(weapons.size() == 0){
+			weaponService.save(weapon);
+		}
 
 		//spells
+		List<Spell> spells = spellService.getAllSpells();
+
 		Spell spell = new Spell(null, null, null, null, null);
-		spellService.save(spell);
+
+		if(spells.size() == 0){
+			spellService.save(spell);
+		}
 
 		//DND classes
+		List<DnDClass> dnDClasses = dnDClassService.getAllDnDClasses();
+
 		DnDClass dnDClass = new DnDClass(null, 0, 0, 0, 0, 0, 0,
 				new ArrayList<Weapon>(), new ArrayList<Spell>());
-		dnDClassService.save(dnDClass);
+
+		if(dnDClasses.size() == 0){
+			dnDClassService.save(dnDClass);
+		}
 
 		//species
+		List<Species> speciesList = speciesService.getAllSpecies();
+
 		Species species = new Species(null, 0, 0, 0, 0, 0, 0, 0);
-		speciesService.save(species);
+
+		if(speciesList.size() == 0){
+			speciesService.save(species);
+		}
 
 		//player characters
+		List<PlayerCharacter> playerCharacters = playerCharacterService.getAllPlayerCharacters();
+
 		PlayerCharacter playerCharacter = new PlayerCharacter(0, species, dnDClass, 0, 0, 0, 0, 0, 0, new ArrayList<Weapon>(),
 				new ArrayList<Spell>(), new ArrayList<Item>(), null, 0);
 
+		if(playerCharacters.size() == 0){
+			playerCharacterService.save(playerCharacter);
+		}
+
 		//actions
+		List<Action> actions = actionService.getAllActions();
+
 		Action action = new Action(null, false, null, null, new ArrayList<HashMap<Integer,String>>());
-		actionService.save(action);
+
+		if(actions.size() == 0){
+			actionService.save(action);
+		}
 
 		//rooms
+		List<Room> rooms = roomService.getAllRooms();
+
 		Room entrance = new Room(new ArrayList<Action>(), null, null, null, "Entrance");
-		roomService.save(entrance);
 		Room foyar = new Room(new ArrayList<Action>(), null, null, null, "Foyar");
-		roomService.save(foyar);
 		Room goblinRoom = new Room(new ArrayList<Action>(), null, null, null, "Goblin Room");
-		roomService.save(goblinRoom);
 		Room spiderNest = new Room(new ArrayList<Action>(), null, null, null, "Spider Nest");
-		roomService.save(spiderNest);
 		Room treasureTrove = new Room(new ArrayList<Action>(), null, null, null, "Treasure Trove");
-		roomService.save(treasureTrove);
+
+		if(rooms.size() == 0){
+			roomService.save(entrance);
+			roomService.save(foyar);
+			roomService.save(goblinRoom);
+			roomService.save(spiderNest);
+			roomService.save(treasureTrove);
+		}
 	}
 
 }

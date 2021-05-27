@@ -24,6 +24,10 @@ public class RoomService {
         return repository.findAll();
     }
 
+    public Room findByName(String name){
+        return repository.findByName(name);
+    }
+
     public void save(Room room) {
         repository.save(room);
     }

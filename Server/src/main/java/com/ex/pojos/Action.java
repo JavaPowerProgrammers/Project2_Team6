@@ -15,12 +15,12 @@ public class Action {
     private boolean selected;
     private String image;
     private String name;
-    private List<Map<Integer, String>> actionFragments;
+    private List<List<String>> actionFragments;
 
     public Action() {
     }
 
-    public Action(String desc, boolean selected, String image, String name, List<Map<Integer, String>> actionFragments) {
+    public Action(String desc, boolean selected, String image, String name, List<List<String>> actionFragments) {
         this.desc = desc;
         this.selected = selected;
         this.image = image;
@@ -68,11 +68,11 @@ public class Action {
         this.name = name;
     }
 
-    public List<Map<Integer, String>> getActionFragments() {
+    public List<List<String>> getActionFragments() {
         return actionFragments;
     }
 
-    public void setActionFragments(List<Map<Integer, String>> actionFragments) {
+    public void setActionFragments(List<List<String>> actionFragments) {
         this.actionFragments = actionFragments;
     }
 

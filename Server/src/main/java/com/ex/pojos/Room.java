@@ -18,17 +18,17 @@ public class Room {
     private String roomBGImage;
     private String desc;
     private List<Action> actions;
-    private List<Map<String, Boolean>> roomActionsChosen;
+    private List<List<String>> roomActionsChosen;
     private List<Weapon> weapons;
     private List<Spell> spells;
-    private List<Item> items;
+    private List<Object> items;
     protected String nextRoom;
     private String name;
 
     public Room() {
     }
 
-    public Room(String currentMiniDisplay, String roomBGImage, String desc, List<Action> actions, List<Map<String, Boolean>> roomActionsChosen, List<Weapon> weapons, List<Spell> spells, List<Item> items, String nextRoom, String name) {
+    public Room(String currentMiniDisplay, String roomBGImage, String desc, List<Action> actions, List<List<String>> roomActionsChosen, List<Weapon> weapons, List<Spell> spells, List<Object> items, String nextRoom, String name) {
         this.currentMiniDisplay = currentMiniDisplay;
         this.roomBGImage = roomBGImage;
         this.desc = desc;
@@ -81,11 +81,11 @@ public class Room {
         this.actions = actions;
     }
 
-    public List<Map<String, Boolean>> getRoomActionsChosen() {
+    public List<List<String>> getRoomActionsChosen() {
         return roomActionsChosen;
     }
 
-    public void setRoomActionsChosen(List<Map<String, Boolean>> roomActionsChosen) {
+    public void setRoomActionsChosen(List<List<String>> roomActionsChosen) {
         this.roomActionsChosen = roomActionsChosen;
     }
 
@@ -105,11 +105,11 @@ public class Room {
         this.spells = spells;
     }
 
-    public List<Item> getItems() {
+    public List<Object> getItems() {
         return items;
     }
 
-    public void setItems(List<Item> items) {
+    public void setItems(List<Object> items) {
         this.items = items;
     }
 

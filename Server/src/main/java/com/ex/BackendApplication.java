@@ -580,9 +580,9 @@ public class BackendApplication implements CommandLineRunner {
 			roomActionsChosen.add(new ArrayList<>(Arrays.asList(cantExit.getDesc(), "false")));
 			roomActionsChosen.add(new ArrayList<>(Arrays.asList(winGame.getDesc(), "false")));
 
-			Room goblinRoom = new Room("", "", roomDesc, actions, roomActionsChosen, weapons, spells, items,"Treasure Trove", "Goblin Room");
-			if(roomService.findByName("Goblin Room") == null){
-				roomService.save(goblinRoom);
+			Room treasureTrove = new Room("", "", roomDesc, actions, roomActionsChosen, weapons, spells, items,"", "Treasure Trove");
+			if(roomService.findByName("Treasure Trove") == null){
+				roomService.save(treasureTrove);
 			}
 		}
 	}

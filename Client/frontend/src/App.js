@@ -10,6 +10,7 @@ export default function App() {
 const [acidArrow, setAcidArrow] = useState(undefined);
 const [user, setUser] = useState(undefined);
 const [entrance, setEntrance] = useState(undefined);
+const [rooms, setRooms] = useState(undefined);
 const history = useHistory();
 // const location = useLocation();
 
@@ -25,6 +26,14 @@ useEffect( ()=> {
     axios.get('http://localhost:8080/Entrance')
     .then( res => {
         setEntrance(res.data);
+        console.log(res.data);
+    });
+  }
+
+  if(rooms === undefined){
+    axios.get('http://localhost:8080/Rooms')
+    .then( res => {
+        setRooms(res.data);
         console.log(res.data);
     });
   }

@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface WeaponMongoRepository extends MongoRepository<Weapon, String> {
+    Weapon findByName(String name);
 }

@@ -5,6 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Document(collection = "Actions")
 public class Action {
@@ -14,17 +15,17 @@ public class Action {
     private boolean selected;
     private String image;
     private String name;
-    private List<HashMap<Integer, String>> roomActionsLogic;
+    private List<Map<Integer, String>> actionFragments;
 
     public Action() {
     }
 
-    public Action(String desc, boolean selected, String image, String name, List<HashMap<Integer, String>> roomActionsLogic) {
+    public Action(String desc, boolean selected, String image, String name, List<Map<Integer, String>> actionFragments) {
         this.desc = desc;
         this.selected = selected;
         this.image = image;
         this.name = name;
-        this.roomActionsLogic = roomActionsLogic;
+        this.actionFragments = actionFragments;
     }
 
     public String getId() {
@@ -67,12 +68,12 @@ public class Action {
         this.name = name;
     }
 
-    public List<HashMap<Integer, String>> getRoomActionsLogic() {
-        return roomActionsLogic;
+    public List<Map<Integer, String>> getActionFragments() {
+        return actionFragments;
     }
 
-    public void setRoomActionsLogic(List<HashMap<Integer, String>> roomActionsLogic) {
-        this.roomActionsLogic = roomActionsLogic;
+    public void setActionFragments(List<Map<Integer, String>> actionFragments) {
+        this.actionFragments = actionFragments;
     }
 
     @Override
@@ -83,7 +84,7 @@ public class Action {
                 ", selected=" + selected +
                 ", image='" + image + '\'' +
                 ", name='" + name + '\'' +
-                ", roomActionsLogic=" + roomActionsLogic +
+                ", actionFragments=" + actionFragments +
                 '}';
     }
 }

@@ -9,19 +9,15 @@ public class Key implements Item{
     private String id;
     private String name;
     private String description;
-    //add the below to the factory
-//    private String Desc= " This brightly lit torch illuminates the entire room you are in. As a Flameable object, " +
-//            "it can burn highly flammable substances";
-    private int visibility;//this will be 1, and will be added to playercharacter
+
     public Key()
     {
 
     }
-    public Key(String name, String description, int visibility)
+    public Key(String name, String description)
     {
         this.name = name;
         this.description = description;
-        this.visibility = visibility;
     }
 
     public String getId()
@@ -54,16 +50,6 @@ public class Key implements Item{
         this.description = description;
     }
 
-    public int getVisibility()
-    {
-        return visibility;
-    }
-
-    public void setVisibility(int visibility)
-    {
-        this.visibility = visibility;
-    }
-
     @Override
     public String toString()
     {
@@ -71,7 +57,6 @@ public class Key implements Item{
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", visibility=" + visibility +
                 '}';
     }
 }

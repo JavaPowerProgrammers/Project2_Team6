@@ -24,7 +24,8 @@ public class DnDClass {
     public DnDClass() {
     }
 
-    public DnDClass(String name, int dexterity, int strength, int constitution, int intelligence, int wisdom, int charisma, List<Weapon> weapons, List<Spell> spells) {
+    public DnDClass(String name, int dexterity, int strength, int constitution, int intelligence, int wisdom, int charisma,
+                    List<Weapon> weapons, List<Spell> spells) {
         this.name = name;
         this.dexterity = dexterity;
         this.strength = strength;
@@ -97,7 +98,7 @@ public class DnDClass {
     }
 
     public void setCharisma(int charisma) {
-        charisma = charisma;
+        this.charisma = charisma;
     }
 
     public List<Weapon> getWeapons() {

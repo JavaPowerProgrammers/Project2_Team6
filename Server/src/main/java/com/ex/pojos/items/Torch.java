@@ -10,7 +10,6 @@ public class Torch implements Item{
     private String id;
     private String name;
     private String description;
-    private String url;
     //add the below to the factory
 //    private String Desc= " This brightly lit torch illuminates the entire room you are in. As a Flameable object, " +
 //            "it can burn highly flammable substances";
@@ -19,11 +18,10 @@ public class Torch implements Item{
     {
 
     }
-    public Torch(String name, String description, String url, int visibility)
+    public Torch(String name, String description, int visibility)
     {
         this.name = name;
         this.description = description;
-        this.url = url;
         this.visibility = visibility;
     }
 
@@ -57,16 +55,6 @@ public class Torch implements Item{
         this.description = description;
     }
 
-    public String getUrl()
-    {
-        return url;
-    }
-
-    public void setUrl(String url)
-    {
-        this.url = url;
-    }
-
     public int getVisibility()
     {
         return visibility;
@@ -84,7 +72,6 @@ public class Torch implements Item{
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", url='" + url + '\'' +
                 ", visibility=" + visibility +
                 '}';
     }

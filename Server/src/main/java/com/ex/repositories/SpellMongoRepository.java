@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SpellMongoRepository extends MongoRepository<Spell, String> {
+    Spell findByName(String name);
 }

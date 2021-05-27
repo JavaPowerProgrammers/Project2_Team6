@@ -24,6 +24,10 @@ public class WeaponService {
         return repository.findAll();
     }
 
+    public Weapon findByName(String name){
+        return repository.findByName(name);
+    }
+
     public void save(Weapon weapon) {
         repository.save(weapon);
     }

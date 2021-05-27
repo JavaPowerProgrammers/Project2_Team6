@@ -24,6 +24,10 @@ public class SpellService {
         return repository.findAll();
     }
 
+    public Spell findByName(String name){
+        return repository.findByName(name);
+    }
+
     public void save(Spell spell) {
         repository.save(spell);
     }

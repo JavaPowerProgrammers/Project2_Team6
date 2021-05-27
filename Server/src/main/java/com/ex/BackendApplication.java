@@ -1,6 +1,7 @@
 package com.ex;
 
 import com.ex.pojos.Action;
+import com.ex.pojos.Creature;
 import com.ex.pojos.Room;
 import com.ex.pojos.items.*;
 import com.ex.pojos.player.DnDClass;
@@ -39,6 +40,8 @@ public class BackendApplication implements CommandLineRunner {
 	private TorchService torchService;
 	@Autowired
 	private WeaponService weaponService;
+	@Autowired
+	private CreatureService creatureService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(BackendApplication.class, args);
@@ -160,39 +163,40 @@ public class BackendApplication implements CommandLineRunner {
 			}
 		}
 
+		//Creatures
+		{
+			List<Creature> creatureList = creatureService.getAllCreatures();
+			Creature goblin = new Creature(5, "1d4", "Goblin");
+			Creature spider = new Creature(10,"1d6", "Spider");
+			Creature goblin2 = new Creature(15, "id8", "Goblin Merchant");
+			Creature dragon = new Creature(20, "1d10", "Black Dragon Wyrmling");
+			if(creatureList.size() == 0){
+				creatureService.save(goblin);
+				creatureService.save(spider);
+				creatureService.save(goblin2);
+				creatureService.save(dragon);
+			}
+		}
 
-		//player characters
-//		List<PlayerCharacter> playerCharacters = playerCharacterService.getAllPlayerCharacters();
-// do the math of character creation in the javascript
-//		PlayerCharacter playerCharacter = new PlayerCharacter(0, species, dnDClass, 0, 0, 0, 0, 0, 0,
-//				new ArrayList<Weapon>(), new ArrayList<Spell>(), new ArrayList<Item>(), null, 0);
-//
-//		if(playerCharacters.size() == 0){
-//			playerCharacterService.save(playerCharacter);
-//		}
+		// Player Character
+		{
+			Species species = speciesService.findByName("Dwarf");
+			DnDClass dnDClass = dnDClassService.findByName("Fighter");
 
-//		currentMiniDisplay:null,
-//				roomBGImage:null,
-//				roomDesc:"You've Come Across A Mysterious Dark Room Filled With Cobb-Webs And See A Giant Mother Spider On The Wall... What Do You Do? ",
-//				roomActionsDesc:["Attack Spider.","Examine Dead Body In The Corner.","Open Chest.","Pick Up Torch From Ground.", "Go Into Goblin Room."],
-//		roomActionsImgs:["res/gifs/creatures/spider.gif","res/imgs/other/bonepile.png","res/gifs/other/chest.gif","res/gifs/items/torch.gif","res/imgs/other/door.png"],
-//		roomActionsChosen:{
-//			"Attack Spider.":false,
-//					"Examine Dead Body In The Corner.":false,
-//					"Open Chest.":false,
-//					"Pick Up Torch From Ground.":false,
-//					"Go Into Goblin Room.":false
-//		},
-//		roomActionsLogic:{
-//			"Attack Spider." : [],
-//			"Examine Dead Body In The Corner." : [ [1,"You found a skull"]], //Found a torch!!! Found A Weird Book... Now Im suddenly feeling smarter...
-//			"Open Chest." : [],
-//			"Pick Up Torch From Ground.":[[1,"Wow! You picked up a torch, COOLL"]],
-//			"Go Into Goblin Room.":[]
-//		},
-//		roomNext: "foyar",
-		//actions
-		//Action action = new Action(String desc, boolean selected, String image, String name, List<Map<Integer, String>> actionFragments);
+			List<PlayerCharacter> playerCharacters = playerCharacterService.getAllPlayerCharacters(); //do the math of character creation in the javascript
+
+			PlayerCharacter playerCharacter = new PlayerCharacter(15 + 2 * (species.getConstitution() + dnDClass.getConstitution()),
+					species, dnDClass, species.getDexterity() + dnDClass.getDexterity(),
+					species.getStrength() + dnDClass.getStrength(), species.getConstitution() + dnDClass.getConstitution(),
+					species.getIntelligence() + dnDClass.getIntelligence(), species.getWisdom() + dnDClass.getWisdom(),
+					species.getCharisma() + dnDClass.getCharisma(), dnDClass.getWeapons(), dnDClass.getSpells(), null,
+					"Muffin", species.getHidden_Visibility());
+
+			if(playerCharacters.size() == 0){
+				playerCharacterService.save(playerCharacter);
+			}
+		}
+
 
 		//Entrance
 		{
@@ -501,98 +505,85 @@ public class BackendApplication implements CommandLineRunner {
 			}
 		}
 
+		//Treasure Trove
+		{
+			//Room Description
+			String roomDesc = " You are able to pull yourself over the edge of the stone cliff. YES!  Carefully looking around, a large " +
+				"shiney, pile of gold catches your eye. Laying in a 4 poster bed next to the gold, lays a small Black Dragon" +
+				"wyrmling. From where you are, you cannot determine if they dragon is awake or asleep. ";
+
+			List<List<String>> attackDragonFragments = new ArrayList<>();
+			{
+				attackDragonFragments.add(Arrays.asList("1", "Hissing green acid drips from the fanged maw of this black-scaled, " +
+						"horned dragon. As it breaths, acid drips into the bed is lies upon, the smell of burned cloth fills the air. " +
+						"As you approach with ill intent, the dragonling flies up and turns to confront you. Your intrusion will not go unpunished."));
+			}
+			Action attackDragon = new Action("Attack Dragon", false, null, "Attack Dragon", attackDragonFragments);
+
+			List<List<String>> examineGoldPileFragments = new ArrayList<>();
+			{
+				examineGoldPileFragments.add(Arrays.asList("1", "You see you objective of fortune upon the ground near the bed. " +
+						"Gold coins, more than any innkeeper would see in a month lie waiting on the ground. Waiting for you perhaps?"));
+			}
+			Action examineGoldPile = new Action("Examine Gold Pile", false,null,"Examine Gold Pile", examineGoldPileFragments);
+
+			List<List<String>> lootGoldFragments = new ArrayList<>();
+			{
+				lootGoldFragments.add(Arrays.asList("1", "Sneaking closer, you grab the gold coins, greedily stuffing them " +
+						"into your pockets and bags. The foolish dragon is sleeping, and the sneaky theif gets the gold. You silently laugh to yourself in glee."));
+			}
+			Action lootGold = new Action("Loot Gold", false, null, "Loot Gold", lootGoldFragments);
+
+			List<List<String>> cantExitFragments = new ArrayList<>();
+			{
+				cantExitFragments.add(Arrays.asList("1", "Before you lies a green transparent shimmering wall. It appears " +
+						"your path is blocked though magic. You see a thin green line connecting the doorway to the dragon. " +
+						"It does not seem amused by your attempts to leave with his gold."));  // can't exit happens when you
+				//try to leave dungeon and dragon is not dead.
+			}
+			Action cantExit = new Action("Can't Exit", false, null, "Can't Exit", cantExitFragments);
+
+			List<List<String>> winGameFragments = new ArrayList<>();
+			{
+				winGameFragments.add(Arrays.asList("1", "You have braved and traveled though the dreaded dungeon. " +
+						"Slew beasts, and looted coin. Your gods smile upon you and your just deserts. Fame and fortune be upon you adventurer."));
+			}
+			Action winGame = new Action("Win Game", false, null, "Win Game", winGameFragments);
 
 
-//		//Treasure Trove room
-//		{
-//			String desc = "";
-//
-//			List<Map<Integer, String>> fragments = new ArrayList<Map<Integer, String>>();
-//			Map<Integer, String> theMap = new HashMap<>();// string descriptions
-//			theMap.put(0," This dark room is visbile only due to your innate racial heritage. All around you are heavy spiderwebs. " +
-//					"You see spiderwebs covering almost all the ground, walls and ceilings of the room. " +
-//					"You can see the entrance to another room across the way, with minimal webs blocking your path. " +
-//					"The skittering sounds of a giant spider reach your ears and strike fear into your heart. Pherhaps this was " +
-//					"a bad idea? It is too late however, there is only moving forward. The corpse of a dead humanoid lies on the" +
-//					"ground wrapped so heavily is spidersilk you are unable to determine who or what it once was.");
-//			theMap.put(1, " Lying tussled on the stone floor is the corpse of a humonoid creature of some kind. As you search around" +
-//					"you realize that it is too tightly wrapped to pull away any of the silk. However, next to the cadaver a scroll" +
-//					" is just lying there, seeming to beckon you and use it. Along with a fair number of gold coins lying around" +
-//					"just waiting to be taken by the next adventurer to pass through. ");// drops loot of acid arrow spell and 10 gold
-//			theMap.put(2, " If only you had some flames able to burn these spider webs.");// no torch
-//			theMap.put(3, " The flames from your torch quickly spread throughout the room clearing out most of the webbings." +
-//					"You hear a screech from the spider, it seems both angered and in pain from your arsonic ways. ");// yes torch burn the spider, dealing 5 damage
-//			theMap.put(4, " Stepping lightly upon the webbings is a large spider. No spider should ever reach this size, having " +
-//					"grown so large it cannot leave this room. Its mandibles click and clatter ");// enter combat attacking spider
-//			theMap.put(5, " This open and spaciaous cavern is a breath of fresh air after traversing through the spider's home. " +
-//					"Before you stands a 5ft tall goblin with a large maul in his hands, and a pile of rope at his feet." +
-//					" He does not seem hostile currently, but " +
-//					"has his eye on you. Beyond him, you see a 15ft rough cliff that leads to the next room. Perhaps you can talk " +
-//					"to this goblin and ask him for his rope to assist you, or maybe even his maul. Or you could defeat him and take" +
-//					"both for yourself, though this may weaken you against future foes. ");//entering the next room
-//			fragments.add(theMap);
-//			Action lootWebbedBody = new Action(theMap.get(1), false, null, "Loot Webbed Body", fragments);
-//			Action burnWebbing = new Action(theMap.get(2), false,null,"Burn Webbing", fragments);// Check inventory for torch, if yes, spider takes 5 damage
-//			Action attackSpider = new Action(theMap.get(4), false, null, "Attack Spider", fragments);// enter combat with spider
-//			Action enterGoblinRoom = new Action(theMap.get(5), false, null, "Enter Goblin Room", fragments);//move out into next room
-//
-//			List<Action> actions = new ArrayList<>();//adding the actions to the list of actions
-//			actions.add(lootWebbedBody);
-//			actions.add(burnWebbing);
-//			actions.add(attackSpider);
-//			actions.add(enterGoblinRoom);
-//		}
-//
-//
-//
-//
-//
-//		if(actions.size() == 0){
-//			actionService.save(action);
-//		}
-//
-//		//rooms
-//		List<Room> rooms = roomService.getAllRooms();
-//		String entranceDesc = "Before you lies the adventurous dungeon you have chosen. To your left there is a statue that is " +
-//				"practically unrecognizable. You see tracks in the mud leading into the ivy covered entryway of the dungeon. " +
-//				"It is a beautiful day outside, but your purpose and dreams of fortune and fame, lie within";
-//		String foyarDesc = " You enter what appears to be a normal cave. You see on the other end, what could generously" +
-//				"be called a doorway leading to another room. In here, you see a small angry looking goblin, a wooden chest, a strawmat " +
-//				"with rags that might be called a sheet. Lighting up the whole room, is a torch at eye level near the entryway";
-//		String spiderroomDesc = " This dark room is ominously dim, filling you with dread. All around you are heavy spiderwebs. " +
-//				"You see spiderwebs covering almost all the ground, walls and ceilings of the room. " +
-//				"You can see the entrance to another room across the way, with minimal webs blocking your path. " +
-//				"The skittering sounds of a giant spider reach your ears and strike fear into your heart. Pherhaps this was " +
-//				"a bad idea? It is too late however, there is only moving forward. The corpse of a dead humanoid lies on the" +
-//				"ground wrapped so heavily is spidersilk you are unable to determine who or what it once was.";
-//		String goblinroomDesc = " This open and spaciaous cavern is a breath of fresh air after traversing through the spider's home. " +
-//				"Before you stands a 5ft tall goblin with a large maul in his hands, and a pile of rope at his feet." +
-//				" He does not seem hostile currently, but " +
-//				"has his eye on you. Beyond him, you see a 15ft rough cliff that leads to the next room. Perhaps you can talk " +
-//				"to this goblin and ask him for his rope to assist you, or maybe even his maul. Or you could defeat him and take" +
-//				"both for yourself, though this may weaken you against future foes. ";
-//		String treasureroomesc = " Huffing and puffing, you are able to pull yourself over the edge of the stone cliff. YES! You " +
-//				"knew your times of swinging your sword would be handy in other situations. Carefully looking around, a large " +
-//				"shiney, pile of gold catches your eye. Laying in a 4 poster bed next to the gold, lays a small Black Dragon" +
-//				"wyrmling. From where you are, you cannot determine if they dragon is awake or asleep. ";
-//
-//
-//
-//
-//
-//		Room entrance = new Room(new ArrayList<Action>(), "Foyar", null, entranceDesc, "Entrance");
-//		Room foyar = new Room(new ArrayList<Action>(), "Spider Nest", null, foyarDesc, "Foyar");
-//		Room goblinRoom = new Room(new ArrayList<Action>(), "Treasure Trove", null, goblinroomDesc, "Goblin Room");
-//		Room spiderNest = new Room(new ArrayList<Action>(), "Goblin Room", null, spiderroomDesc, "Spider Nest");
-//		Room treasureTrove = new Room(new ArrayList<Action>(), null, null, treasureroomesc, "Treasure Trove");//the next room is end of game
-//
-//		if(rooms.size() == 0){
-//			roomService.save(entrance);
-//			roomService.save(foyar);
-//			roomService.save(goblinRoom);
-//			roomService.save(spiderNest);
-//			roomService.save(treasureTrove);
-//		}
+			List<Action> actions = new ArrayList<>();//adding the actions to the list of actions
+			actions.add(attackDragon);
+			actions.add(examineGoldPile);
+			actions.add(lootGold);
+			actions.add(cantExit);
+			actions.add(winGame);
+
+			//List of Weapons
+			List<Weapon> weapons = new ArrayList<>();
+//			weapons.add(weaponService.findByName("Maul"));
+
+			//List of Spells
+			List<Spell> spells = new ArrayList<>();
+//			spells.add(spellService.findByName("Acid Arrow"));
+
+			//List of Items
+			List<Object> items = new ArrayList<>();
+//			items.add(keyService.getAllKeys().get(0));
+//			items.add(torchService.getAllTorches().get(0));
+//			items.add(ropeService.getAllRopes().get(0));
+
+			//Room Actions Chosen
+			List<List<String>> roomActionsChosen = new ArrayList<>();
+			roomActionsChosen.add(new ArrayList<>(Arrays.asList(attackDragon.getDesc(), "false")));
+			roomActionsChosen.add(new ArrayList<>(Arrays.asList(examineGoldPile.getDesc(), "false")));
+			roomActionsChosen.add(new ArrayList<>(Arrays.asList(lootGold.getDesc(), "false")));
+			roomActionsChosen.add(new ArrayList<>(Arrays.asList(cantExit.getDesc(), "false")));
+			roomActionsChosen.add(new ArrayList<>(Arrays.asList(winGame.getDesc(), "false")));
+
+			Room goblinRoom = new Room("", "", roomDesc, actions, roomActionsChosen, weapons, spells, items,"Treasure Trove", "Goblin Room");
+			if(roomService.findByName("Goblin Room") == null){
+				roomService.save(goblinRoom);
+			}
+		}
 	}
-
 }

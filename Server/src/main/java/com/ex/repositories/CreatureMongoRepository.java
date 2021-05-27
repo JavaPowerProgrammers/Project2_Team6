@@ -1,10 +1,10 @@
 package com.ex.repositories;
 
-import com.ex.pojos.player.DnDClass;
+import com.ex.pojos.Creature;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DnDClassMongoRepository extends MongoRepository<DnDClass, String> {
-    DnDClass findByName(String name);
+public interface CreatureMongoRepository extends MongoRepository<Creature, String>
+{
 }

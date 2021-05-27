@@ -24,6 +24,10 @@ public class DnDClassService {
         return repository.findAll();
     }
 
+    public DnDClass findByName(String name){
+        return repository.findByName(name);
+    }
+
     public void save(DnDClass dnDClass) {
         repository.save(dnDClass);
     }

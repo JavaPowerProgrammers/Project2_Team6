@@ -25,7 +25,7 @@ public class PlayerCharacter {
     //Player weapons and spells
     private List<Weapon> weapons;
     private List<Spell> spells;
-    private List<Item> items;
+    private List<Object> items;
     private String playerName;
     //hidden attributes
     private int visibility;//if 1, then yes. if 0, then no.
@@ -33,7 +33,7 @@ public class PlayerCharacter {
     public PlayerCharacter() {
     }
 
-    public PlayerCharacter(int health, Species race, DnDClass profession, int dexterity, int strength, int constitution, int intelligence, int wisdom, int charisma, List<Weapon> weapons, List<Spell> spells, List<Item> items, String playerName, int visibility) {
+    public PlayerCharacter(int health, Species race, DnDClass profession, int dexterity, int strength, int constitution, int intelligence, int wisdom, int charisma, List<Weapon> weapons, List<Spell> spells, List<Object> items, String playerName, int visibility) {
         this.health = health;
         this.race = race;
         this.profession = profession;
@@ -146,11 +146,11 @@ public class PlayerCharacter {
         this.spells = spells;
     }
 
-    public List<Item> getItems() {
+    public List<Object> getItems() {
         return items;
     }
 
-    public void setItems(List<Item> items) {
+    public void setItems(List<Object> items) {
         this.items = items;
     }
 

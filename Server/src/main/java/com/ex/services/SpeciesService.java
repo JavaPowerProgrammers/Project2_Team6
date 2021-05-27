@@ -24,6 +24,10 @@ public class SpeciesService {
         return repository.findAll();
     }
 
+    public Species findByName(String name){
+        return repository.findByName(name);
+    }
+
     public void save(Species species) {
         repository.save(species);
     }

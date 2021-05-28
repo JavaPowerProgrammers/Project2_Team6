@@ -17,7 +17,10 @@ public class InitApisController {
 
     public InitApisController() {
     }
-
+    /*
+        This requests a comment of some kind. This contrller controller and interfaces
+        between the service and the repository for your viewing pleasure
+         */
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/dndApiData")
     public @ResponseBody

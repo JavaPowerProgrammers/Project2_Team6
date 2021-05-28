@@ -8,6 +8,8 @@ import com.ex.pojos.player.DnDClass;
 import com.ex.pojos.player.PlayerCharacter;
 import com.ex.pojos.player.Species;
 import com.ex.services.*;
+import com.sun.org.slf4j.internal.Logger;
+import com.sun.org.slf4j.internal.LoggerFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -20,6 +22,8 @@ import java.util.*;
 @SpringBootApplication
 //public class BackendApplication {
 public class BackendApplication implements CommandLineRunner {
+
+	public static Logger logger = LoggerFactory.getLogger(BackendApplication.class);
 
 	@Autowired
 	private ActionService actionService;

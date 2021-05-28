@@ -21,7 +21,10 @@ public class PlayerCharacterController {
     public PlayerCharacterController(PlayerCharacterService playerCharacterService) {
         this.service = playerCharacterService;
     }
-
+    /*
+        This requests a comment of some kind. This contrller controller and interfaces
+        between the service and the repository for your viewing pleasure
+         */
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/PlayerCharacters")
     public @ResponseBody ResponseEntity getAllPlayerCharacters(){

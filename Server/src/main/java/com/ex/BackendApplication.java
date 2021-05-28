@@ -8,13 +8,11 @@ import com.ex.pojos.player.DnDClass;
 import com.ex.pojos.player.PlayerCharacter;
 import com.ex.pojos.player.Species;
 import com.ex.services.*;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 @SpringBootApplication
@@ -167,10 +165,10 @@ public class BackendApplication implements CommandLineRunner {
 		//Creatures
 		{
 			List<Creature> creatureList = creatureService.getAllCreatures();
-			Creature goblin = new Creature(5, "1d4", "./res/gifs/creatures/goblin.gif", "Goblin");
-			Creature spider = new Creature(10,"1d6", "./res/gifs/creatures/spider.gif", "Spider");
-			Creature goblin2 = new Creature(15, "id8", "./res/gifs/creatures/goblin2.gif", "Goblin Merchant");
-			Creature dragon = new Creature(20, "1d10", "./res/gifs/creatures/dragon.gif", "Black Dragon Wyrmling");
+			Creature goblin = new Creature("Goblin", 5, "./res/gifs/creatures/goblin.gif", "1d4");
+			Creature spider = new Creature("Spider", 10, "./res/gifs/creatures/spider.gif", "1d6");
+			Creature goblin2 = new Creature("Goblin Merchant", 15, "./res/gifs/creatures/goblin2.gif","id8");
+			Creature dragon = new Creature("Black Dragon Wyrmling", 20, "./res/gifs/creatures/dragon.gif", "1d10");
 			if(creatureList.size() == 0){
 				creatureService.save(goblin);
 				creatureService.save(spider);

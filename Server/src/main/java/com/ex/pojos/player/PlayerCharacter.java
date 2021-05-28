@@ -13,6 +13,7 @@ public class PlayerCharacter {
     @Id
     private String id;
     private int health;
+    private int maxHealth;
     private Species race;
     private DnDClass profession;
     // Player Attributes
@@ -33,8 +34,9 @@ public class PlayerCharacter {
     public PlayerCharacter() {
     }
 
-    public PlayerCharacter(int health, Species race, DnDClass profession, int dexterity, int strength, int constitution, int intelligence, int wisdom, int charisma, List<Weapon> weapons, List<Spell> spells, List<Object> items, String playerName, int visibility) {
+    public PlayerCharacter(int health, int maxHealth, Species race, DnDClass profession, int dexterity, int strength, int constitution, int intelligence, int wisdom, int charisma, List<Weapon> weapons, List<Spell> spells, List<Object> items, String playerName, int visibility) {
         this.health = health;
+        this.maxHealth = maxHealth;
         this.race = race;
         this.profession = profession;
         this.dexterity = dexterity;
@@ -64,6 +66,14 @@ public class PlayerCharacter {
 
     public void setHealth(int health) {
         this.health = health;
+    }
+
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
     }
 
     public Species getRace() {
@@ -175,6 +185,7 @@ public class PlayerCharacter {
         return "PlayerCharacter{" +
                 "id='" + id + '\'' +
                 ", health=" + health +
+                ", maxHealth=" + maxHealth +
                 ", race=" + race +
                 ", profession=" + profession +
                 ", dexterity=" + dexterity +

@@ -26,6 +26,6 @@ public class RopeController {
     @GetMapping("/Ropes")
     public @ResponseBody ResponseEntity getAllRopes(){
         List<Rope> ropes = service.getAllRopes();
-        return new ResponseEntity(ropes, HttpStatus.OK);
+        return new ResponseEntity(ropes.get(0), HttpStatus.OK);
     }
 }

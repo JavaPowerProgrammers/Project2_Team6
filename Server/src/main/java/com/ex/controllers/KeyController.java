@@ -26,6 +26,6 @@ public class KeyController {
     @GetMapping("/Keys")
     public @ResponseBody ResponseEntity getAllKeys(){
         List<Key> keys = service.getAllKeys();
-        return new ResponseEntity(keys, HttpStatus.OK);
+        return new ResponseEntity(keys.get(0), HttpStatus.OK);
     }
 }

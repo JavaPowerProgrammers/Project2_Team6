@@ -32,15 +32,30 @@ public class RoomController {
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/Entrance")
     public @ResponseBody ResponseEntity getEntrance(){
-        List<Room> rooms = service.getAllRooms();
+        return new ResponseEntity(service.findByName("Entrance"), HttpStatus.OK);
+    }
 
-        Room room = null;
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/Foyar")
+    public @ResponseBody ResponseEntity getFoyar(){
+        return new ResponseEntity(service.findByName("Foyar"), HttpStatus.OK);
+    }
 
-        for(Room r: rooms){
-            if(r.getName().equals("Entrance")){
-                room = r;
-            }
-        }
-        return new ResponseEntity(room, HttpStatus.OK);
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/SpiderNest")
+    public @ResponseBody ResponseEntity getSpiderNest(){
+        return new ResponseEntity(service.findByName("SpiderNest"), HttpStatus.OK);
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/GoblinRoom")
+    public @ResponseBody ResponseEntity getGoblinRoom(){
+        return new ResponseEntity(service.findByName("GoblinRoom"), HttpStatus.OK);
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/TreasureTrove")
+    public @ResponseBody ResponseEntity getTreasureTrove(){
+        return new ResponseEntity(service.findByName("TreasureTrove"), HttpStatus.OK);
     }
 }

@@ -26,6 +26,6 @@ public class TorchController {
     @GetMapping("/Torches")
     public @ResponseBody ResponseEntity getAllTorches(){
         List<Torch> torches = service.getAllTorches();
-        return new ResponseEntity(torches, HttpStatus.OK);
+        return new ResponseEntity(torches.get(0), HttpStatus.OK);
     }
 }

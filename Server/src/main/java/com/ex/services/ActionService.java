@@ -2,12 +2,14 @@ package com.ex.services;
 
 import com.ex.pojos.Action;
 import com.ex.repositories.ActionMongoRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Slf4j
 public class ActionService {
 
     private ActionMongoRepository repository;

@@ -8,6 +8,7 @@ import com.ex.pojos.player.DnDClass;
 import com.ex.pojos.player.PlayerCharacter;
 import com.ex.pojos.player.Species;
 import com.ex.services.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -53,7 +54,7 @@ public class BackendApplication implements CommandLineRunner {
 		{
 			List<Key> keys = keyService.getAllKeys();
 			Key key = new Key("Key", "This key can open any lock your heart desires...as long as its that chest" +
-					"over there. ");
+					"over there. ", "./res/imgs/randomkey.png", "other");
 
 			if(keys.size() == 0){
 				keyService.save(key);
@@ -63,7 +64,7 @@ public class BackendApplication implements CommandLineRunner {
 		{
 			List<Rope> ropes = ropeService.getAllRopes();
 			Rope rope = new Rope("Rope", "This smooth silky rope feels nice on your skin. You wonder what other" +
-					"uses it might have beyond climbing cliffs.");
+					"uses it might have beyond climbing cliffs.", "./res/imgs/other/rope.jpg", "other");
 
 			if(ropes.size() == 0){
 				ropeService.save(rope);
@@ -73,7 +74,7 @@ public class BackendApplication implements CommandLineRunner {
 		{
 			List<Torch> torches = torchService.getAllTorches();
 			Torch torch = new Torch("Torch", " This brightly lit torch illuminates the entire room you are in. As a Flameable object, " +
-					"it can burn highly flammable substances", 1);
+					"it can burn highly flammable substances", "./res/gifs/items/torch.gif", "other", 1);
 
 			if(torches.size() == 0){
 				torchService.save(torch);
@@ -166,10 +167,10 @@ public class BackendApplication implements CommandLineRunner {
 		//Creatures
 		{
 			List<Creature> creatureList = creatureService.getAllCreatures();
-			Creature goblin = new Creature(5, "1d4", "Goblin");
-			Creature spider = new Creature(10,"1d6", "Spider");
-			Creature goblin2 = new Creature(15, "id8", "Goblin Merchant");
-			Creature dragon = new Creature(20, "1d10", "Black Dragon Wyrmling");
+			Creature goblin = new Creature(5, "1d4", "./res/gifs/creatures/goblin.gif", "Goblin");
+			Creature spider = new Creature(10,"1d6", "./res/gifs/creatures/spider.gif", "Spider");
+			Creature goblin2 = new Creature(15, "id8", "./res/gifs/creatures/goblin2.gif", "Goblin Merchant");
+			Creature dragon = new Creature(20, "1d10", "./res/gifs/creatures/dragon.gif", "Black Dragon Wyrmling");
 			if(creatureList.size() == 0){
 				creatureService.save(goblin);
 				creatureService.save(spider);
@@ -186,7 +187,8 @@ public class BackendApplication implements CommandLineRunner {
 			List<PlayerCharacter> playerCharacters = playerCharacterService.getAllPlayerCharacters(); //do the math of character creation in the javascript
 
 			PlayerCharacter playerCharacter = new PlayerCharacter(15 + 2 * (species.getConstitution() + dnDClass.getConstitution()),
-					species, dnDClass, species.getDexterity() + dnDClass.getDexterity(),
+					15 + 2 * (species.getConstitution() + dnDClass.getConstitution()), species, dnDClass,
+					species.getDexterity() + dnDClass.getDexterity(),
 					species.getStrength() + dnDClass.getStrength(), species.getConstitution() + dnDClass.getConstitution(),
 					species.getIntelligence() + dnDClass.getIntelligence(), species.getWisdom() + dnDClass.getWisdom(),
 					species.getCharisma() + dnDClass.getCharisma(), dnDClass.getWeapons(), dnDClass.getSpells(), null,
@@ -213,7 +215,7 @@ public class BackendApplication implements CommandLineRunner {
 						"to determine who it depicts as it is heavily damaged. You see claw marks ravaging the lower parts and acid " +
 						"bubbles on the upper torso. Her left arm seems to have been broken off and lies on the ground next to her. "));
 			}
-			Action examineStatue = new Action("Examine Statue", false, null, "Examine Statue", examineStatueFragments);
+			Action examineStatue = new Action("Examine Statue", false, "/res/gifs/", "Examine Statue", examineStatueFragments);
 
 			List<List<String>> examineTrackFragments = new ArrayList<>();
 			{
@@ -256,7 +258,7 @@ public class BackendApplication implements CommandLineRunner {
 			roomActionsChosen.add(new ArrayList<>(Arrays.asList(examineTrack.getDesc(), "false")));
 			roomActionsChosen.add(new ArrayList<>(Arrays.asList(enterFoyarRoom.getDesc(), "false")));
 
-			Room entrance = new Room("", "", roomDesc, actions, roomActionsChosen, weapons, spells, items,"Foyar", "Entrance");
+			Room entrance = new Room(null, null, roomDesc, actions, roomActionsChosen, weapons, spells, items,"Foyar", "Entrance");
 			if(roomService.findByName("Entrance") == null){
 				roomService.save(entrance);
 			}
@@ -289,9 +291,9 @@ public class BackendApplication implements CommandLineRunner {
 			{
 				openChestFragments.add(Arrays.asList("1", " Noticing and avoiding the trap, you are able to open the chest carefully enough to not " +
 						"trigger the fireball. Looking inside your see a few desirable items, your first loot of the day. ")); //succ wisdom
-				openChestFragments.add(Arrays.asList("2", "Opening the chest carelessly was a mistake. A hidden fireball trap was rigged to the " +
+				openChestFragments.add(Arrays.asList("1", "Opening the chest carelessly was a mistake. A hidden fireball trap was rigged to the " +
 						"inside of the chest. You are hit and take fire damage. Shameful and a poor start to your adventure")); //fail wisdom, fail dex
-				openChestFragments.add(Arrays.asList("3", " Despite your careless disregard for your own safety, you fling open the chest and " +
+				openChestFragments.add(Arrays.asList("1", " Despite your careless disregard for your own safety, you fling open the chest and " +
 						"narrowly dodge the fireball trap inside. Your close brush with death is offset by the goodies you see in " +
 						"front of you. It was worth the risk")); //fail wisdom, succ dex
 				//manage dice rolls on frontend
@@ -349,7 +351,7 @@ public class BackendApplication implements CommandLineRunner {
 			roomActionsChosen.add(new ArrayList<>(Arrays.asList(attackGoblin.getDesc(), "false")));
 			roomActionsChosen.add(new ArrayList<>(Arrays.asList(enterSpiderRoom.getDesc(), "false")));
 
-			Room foyar = new Room("", "", roomDesc, actions, roomActionsChosen, weapons, spells, items,"Spider Nest", "Foyar");
+			Room foyar = new Room(null, null, roomDesc, actions, roomActionsChosen, weapons, spells, items,"SpiderNest", "Foyar");
 			if(roomService.findByName("Foyar") == null){
 				roomService.save(foyar);
 			}
@@ -378,7 +380,7 @@ public class BackendApplication implements CommandLineRunner {
 			List<List<String>> burnWebbingFragments = new ArrayList<>();
 			{
 				burnWebbingFragments.add(Arrays.asList("1", " If only you had some flames able to burn these spider webs."));// no torch
-				burnWebbingFragments.add(Arrays.asList("2", " The flames from your torch quickly spread throughout the room clearing out most of the webbings." +
+				burnWebbingFragments.add(Arrays.asList("1", " The flames from your torch quickly spread throughout the room clearing out most of the webbings." +
 						"You hear a screech from the spider, it seems both angered and in pain from your arsonic ways. ")); // yes torch burn the spider, dealing 5 damage));))
 			}
 			Action burnWebbing = new Action("Burn Webbing", false,null,"Burn Webbing", burnWebbingFragments);
@@ -428,8 +430,8 @@ public class BackendApplication implements CommandLineRunner {
 			roomActionsChosen.add(new ArrayList<>(Arrays.asList(attackSpider.getDesc(), "false")));
 			roomActionsChosen.add(new ArrayList<>(Arrays.asList(enterGoblinRoom.getDesc(), "false")));
 
-			Room spiderNest = new Room("", "", roomDesc, actions, roomActionsChosen, weapons, spells, items,"Goblin Room", "Spider Nest");
-			if(roomService.findByName("Spider Nest") == null){
+			Room spiderNest = new Room(null, null, roomDesc, actions, roomActionsChosen, weapons, spells, items,"GoblinRoom", "SpiderNest");
+			if(roomService.findByName("SpiderNest") == null){
 				roomService.save(spiderNest);
 			}
 		}
@@ -448,7 +450,7 @@ public class BackendApplication implements CommandLineRunner {
 			{
 				talkToGoblinFragments.add(Arrays.asList("1", "Greetings adventurer, Ive got what you need. I assume you plan on climbing up this here cliff and doing " +
 					"battle with the dragon in the next room.")); // talk to goblin
-				talkToGoblinFragments.add(Arrays.asList("2", "You know, I like you, I really do. You seem like a swell chap. Here, because you obviously cleared " +
+				talkToGoblinFragments.add(Arrays.asList("1", "You know, I like you, I really do. You seem like a swell chap. Here, because you obviously cleared " +
 						"the roomed behind you. Ill give you this rope for free.")); // dc 15 charisma check pass, player.inventory gets rope.
 			}
 			Action talkToGoblin = new Action("Talk to Goblin", false, null, "Talk to Goblin", talkToGoblinFragments);
@@ -466,7 +468,7 @@ public class BackendApplication implements CommandLineRunner {
 				//if failure, do fragment 1, and take 1 damage. player health -1. If success, fragment 2 and go to next room.
 				climbCliffFragments.add(Arrays.asList("1", " Despite your 'best' efforts, you we only able to climb partway when you fell 10 feet back to" +
 						"the ground. You have sprained your ankle and have taken 1 fall damage. Get good noob")); //strength check 10, this is failure
-				climbCliffFragments.add(Arrays.asList("2", " Huffing and puffing, you are able to pull yourself over the edge of the stone cliff. YES! You " +
+				climbCliffFragments.add(Arrays.asList("1", " Huffing and puffing, you are able to pull yourself over the edge of the stone cliff. YES! You " +
 						"knew your times of swinging your sword would be handy in other situations. Carefully looking around, a large " +
 						"shiney, pile of gold catches your eye. Laying in a 4 poster bed next to the gold, lays a small Black Dragon" +
 						"wyrmling. From where you are, you cannot determine if they dragon is awake or asleep. ")); // this is success
@@ -499,8 +501,8 @@ public class BackendApplication implements CommandLineRunner {
 			roomActionsChosen.add(new ArrayList<>(Arrays.asList(attackGoblin.getDesc(), "false")));
 			roomActionsChosen.add(new ArrayList<>(Arrays.asList(climbCliff.getDesc(), "false")));
 
-			Room goblinRoom = new Room("", "", roomDesc, actions, roomActionsChosen, weapons, spells, items,"Treasure Trove", "Goblin Room");
-			if(roomService.findByName("Goblin Room") == null){
+			Room goblinRoom = new Room(null, null, roomDesc, actions, roomActionsChosen, weapons, spells, items,"TreasureTrove", "GoblinRoom");
+			if(roomService.findByName("GoblinRoom") == null){
 				roomService.save(goblinRoom);
 			}
 		}
@@ -580,8 +582,8 @@ public class BackendApplication implements CommandLineRunner {
 			roomActionsChosen.add(new ArrayList<>(Arrays.asList(cantExit.getDesc(), "false")));
 			roomActionsChosen.add(new ArrayList<>(Arrays.asList(winGame.getDesc(), "false")));
 
-			Room treasureTrove = new Room("", "", roomDesc, actions, roomActionsChosen, weapons, spells, items,"", "Treasure Trove");
-			if(roomService.findByName("Treasure Trove") == null){
+			Room treasureTrove = new Room(null, null, roomDesc, actions, roomActionsChosen, weapons, spells, items,null, "TreasureTrove");
+			if(roomService.findByName("TreasureTrove") == null){
 				roomService.save(treasureTrove);
 			}
 		}

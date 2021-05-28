@@ -1,33 +1,28 @@
 package com.ex.pojos;
 
-import com.sun.javafx.beans.IDProperty;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 //package com.ex.pojos.monsters.Creature;
-/*
-this is the creature template. from here we create the spider, goblin1 goblin2, and dragon
-not much to say here, its a pogo stick.
- */
 @Document
 @Data
 public class Creature
 {
     @Id
     private String ID;
-    private int health;
-    private String dmg;
-    private String img;
     private String name;
+    private int health;
+    private String img;
+    private String dmg;
 
     public Creature() {
     }
 
-    public Creature(int health, String dmg, String img, String name) {
-        this.health = health;
-        this.dmg = dmg;
-        this.img = img;
+    public Creature(String name, int health, String img, String dmg) {
         this.name = name;
+        this.health = health;
+        this.img = img;
+        this.dmg = dmg;
     }
 
     public String getID() {
@@ -38,20 +33,20 @@ public class Creature
         this.ID = ID;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getHealth() {
         return health;
     }
 
     public void setHealth(int health) {
         this.health = health;
-    }
-
-    public String getDmg() {
-        return dmg;
-    }
-
-    public void setDmg(String dmg) {
-        this.dmg = dmg;
     }
 
     public String getImg() {
@@ -62,22 +57,22 @@ public class Creature
         this.img = img;
     }
 
-    public String getName() {
-        return name;
+    public String getDmg() {
+        return dmg;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDmg(String dmg) {
+        this.dmg = dmg;
     }
 
     @Override
     public String toString() {
         return "Creature{" +
                 "ID='" + ID + '\'' +
-                ", health=" + health +
-                ", dmg='" + dmg + '\'' +
-                ", img='" + img + '\'' +
                 ", name='" + name + '\'' +
+                ", health=" + health +
+                ", img='" + img + '\'' +
+                ", dmg='" + dmg + '\'' +
                 '}';
     }
 

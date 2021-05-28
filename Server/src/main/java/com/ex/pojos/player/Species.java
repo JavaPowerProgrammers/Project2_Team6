@@ -19,7 +19,8 @@ public class Species {
     public Species() {
     }
 
-    public Species(String name, int dexterity, int strength, int constitution, int intelligence, int wisdom, int charisma, int hidden_Visibility) {
+    public Species(String name, int dexterity, int strength, int constitution,
+                   int intelligence, int wisdom, int charisma, int hidden_Visibility) {
         this.name = name;
         this.dexterity = dexterity;
         this.strength = strength;

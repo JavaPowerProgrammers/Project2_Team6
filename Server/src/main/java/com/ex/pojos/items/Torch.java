@@ -3,7 +3,11 @@ package com.ex.pojos.items;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
+/*
+the torch's purpose is to allow non-darkvision species to enter the spider room, right now thats just humans
+also, once you are in the spider room, it will allow you to 'cheat' and set fire to
+webbing causing free damage to the spider, making combat easier
+ */
 @Document(collection = "Torches")
 public class Torch implements Item{
     @Id

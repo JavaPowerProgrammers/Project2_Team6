@@ -2,7 +2,10 @@ package com.ex.pojos.items;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
+/*
+This is the weapons Pogo. I think we all know what weapons do. It is also reliant on the
+DnD api for some of its information.
+ */
 @Document(collection = "Weapons")
 public class Weapon {
     @Id
@@ -13,40 +16,13 @@ public class Weapon {
     private String damage_at_slot_level;
     private String damage_dice;
     private String url;
-    //"This weapon is a " + name + " that " + type + " your foes. Dealing up to" + d + " damage";
 
-//    1. Home screen, player presses play, choses dungeon, calls initial Data.
-//
-//    2.
-//    davidItemsData= {
-//            "rope": {"name":Rope, "desc":Its a rope, "imgURL":imgDir},
-//            "key": {"name":key, "desc":Its a key, "imgURL":imgDir},
-//            "torch": {"name":torch, "desc":Its a Torch, "imgURL":imgDir},
-//
-//            "long-sword":{"name":LongSword,.......}
-//    }
-//    ,
-//    FirstroomsData={}
-//    ,
-//    APIListData=["long-sword","acid-arrow".....]
-//    ,
-//    playerData={"wizard":["acid-arrow"], "fighter":["long-sword"]}
-//
-//    3. Loops through
-//    -call bens methods => cachedData api "http/DND/APIequipments/acid-arrow" => "acid-arrow":{} => add to davidsItemData
-//
-//    4. Ready To Play , to pick Race, Class
-//
-//
-//    apiCachedData={
-//            "acid-arrow": {"attk":5, "img-url":-, "desc":"Burns the person with accept"},
-//        ...
-//    }
 
     public Weapon() {
     }
 
-    public Weapon(String name, String description, String damage_type, String damage_at_slot_level, String damage_dice, String url) {
+    public Weapon(String name, String description, String damage_type,
+                  String damage_at_slot_level, String damage_dice, String url) {
         this.name = name;
         this.description = description;
         this.damage_type = damage_type;

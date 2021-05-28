@@ -5,6 +5,10 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 //package com.ex.pojos.monsters.Creature;
+/*
+this is the creature template. from here we create the spider, goblin1 goblin2, and dragon
+not much to say here, its a pogo stick.
+ */
 @Document
 @Data
 public class Creature

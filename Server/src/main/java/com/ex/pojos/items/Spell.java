@@ -2,7 +2,13 @@ package com.ex.pojos.items;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
+/*
+spells are basically weapons, but with magic. Right now, we only have 4 spells set up
+MM, BH, AA, DL, with Dancing lights not actually doing any damage.
+if we have time, might add logic to give the playercharater a +1 visibility if dancing lights
+is in the spell inventory.
+SPells are also one of the few parts of the code that rely on the APi
+ */
 @Document(collection = "Spells")
 public class Spell {
     @Id

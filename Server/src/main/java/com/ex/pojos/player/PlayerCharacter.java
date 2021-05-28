@@ -34,7 +34,9 @@ public class PlayerCharacter {
     public PlayerCharacter() {
     }
 
-    public PlayerCharacter(int health, int maxHealth, Species race, DnDClass profession, int dexterity, int strength, int constitution, int intelligence, int wisdom, int charisma, List<Weapon> weapons, List<Spell> spells, List<Object> items, String playerName, int visibility) {
+    public PlayerCharacter(int health, int maxHealth, Species race, DnDClass profession, int dexterity,
+                           int strength, int constitution, int intelligence, int wisdom, int charisma,
+                           List<Weapon> weapons, List<Spell> spells, List<Object> items, String playerName, int visibility) {
         this.health = health;
         this.maxHealth = maxHealth;
         this.race = race;

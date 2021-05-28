@@ -9,7 +9,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 import java.util.Map;
-
+/*
+The bane of our existance, probably. the building block middle spot of the project.
+in the room we have actions, monsters, items, and playercharacter.
+ */
 @Document(collection = "Rooms")
 public class Room {
     @Id

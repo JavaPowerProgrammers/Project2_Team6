@@ -2,7 +2,10 @@ package com.ex.pojos.items;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
+/*
+The key item is deisgned for basically one purpose.
+To give a +10 bonus to checks involving the chest, ensuring total success
+ */
 @Document(collection = "Keys")
 public class Key implements Item{
     @Id

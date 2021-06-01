@@ -2,27 +2,6 @@
 
 ## Project Description
 Dungeons Master is a decision-based dungeon crawler game modelled heavily, but not fully, off the typical Dungeons and Dragons ruleset. When you click play, you will choose your dungeon, Race (Elf, Dwarf, Human), and Class (Rogue, Fighter, Wizard). Based on your choices, you will have different attributes (Strength, Dexterity, Constitution, Wisdom, Charisma, Intelligence) and based on those attributes, you will be better or worse at different actions. Due to the random nature of dice, no 2 journeys will be exactly the same, even if you make the same choices. So, hop on in, click play, and pray that the dice gods and RNGesus smile upon you.
-
-Technologies Used: Java 1.8, JDBC (Java Database Connectivity), MongoDB, HTML/CSS/Javascript, AJAX, Spring Boot, Spring MVC, React, Redux, JUnit, log4j.
-
-
-
-
-Project 2 Requirements - Due Friday of Week 7
-Simulate some business 30%
-Documentation 5% - (javadocs)
-User Interaction 10%
-Unit Testing (70% coverage) 40%
-Presentation 5%
-Data Persistence 5%
-Logging 5%
-
-The following are the specifications for Project 2.
-Project 2 is an HTML CHYOA game application.
-
-HTML DND Theme Dungeon Crawl Game Web Application:
-
-        -Spring Boot
 	
 ## Technologies Used
 - Java 1.8
@@ -31,12 +10,11 @@ HTML DND Theme Dungeon Crawl Game Web Application:
 - HTML/CSS/Javascript
 - NodeJS 6.14.12
 - React 17.0.2
-- Redux ???
+- Redux 1.5.
 - Axios 0.21.1
 - spring-boot-starter-data-mongodb
 - spring-boot-starter-web
 - Spring Boot 2.4.5
-- 
 
 ## Features
 
@@ -48,7 +26,7 @@ HTML DND Theme Dungeon Crawl Game Web Application:
 - Query [Dungeons and Dragons api](https://www.dnd5eapi.co) for weapon and spell properties.
 
 ## Getting Started
-To install the client and server applications, click on the follow links to install the pre-requisite software.
+To install the client and server applications, click on the following links to install the pre-requisite software.
 
 1) [Intellij](https://www.jetbrains.com/help/idea/installation-guide.html)
 2) [Visual Studio Code](https://code.visualstudio.com/download)
@@ -58,7 +36,7 @@ To install the client and server applications, click on the follow links to inst
 
 6) Open a terminal or powershell and clone this repo:
 
-```git clone https://github.com/benjaminbales/ERS.git```
+```git clone https://github.com/JavaPowerProgrammers/Project2_Team6.git```
 
 7) Navigate to your home directory and enter the following command to start MongoDB:
 
@@ -70,19 +48,19 @@ To install the client and server applications, click on the follow links to inst
 
 ```npm install axios```
 
-```npm install @reduxjs/toolkit``
+```npm install @reduxjs/toolkit```
 
-10) Open the Server application in Intellij and wait for gradle to finish building the application. Then, open BackendApplication.java in the package com.ex and click the green play button to the left of the main method.  This should launch the server listening for HTTP requests on port 8080.
-11) Back in VS Code, in the terminal, type:
+9) Open the Server application in Intellij and wait for gradle to finish building the application. Then, open BackendApplication.java in the package com.ex and click the green play button to the left of the main method.  This should launch the server listening for HTTP requests on port 8080.
+10) Back in VS Code, in the terminal, type:
 
 ```npm start```
 
-12) This automatically opens a tab in your default web browser at http://localhost:3000.  If not, then copy/past the link in your browser, and you should see the following:
+11) This automatically opens a tab in your default web browser at http://localhost:3000.  If not, then copy/paste the link in your browser, and you should see the following:
 
-![ERS Home Screen](/ERSHome.png?raw=true "ERS Home Screen") //replace with new home screen
+![Dungeons Master Home Screen](/DungeonsMasterHome.png?raw=true "Dungeons Master Home Screen")
 
 ## Usage
-
+//update
 1) Click on the login tab and enter the default manager username and password.  
 2) This will re-direct you to the manager home page where can see an empty table with options to view a list of employees, and pending and resolved reimbursement requests.  
 3) Create an employee using the "register employee" button.  

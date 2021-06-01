@@ -4,8 +4,7 @@
 Dungeons Master is a decision-based dungeon crawler game modelled heavily, but not fully, off the typical Dungeons and Dragons ruleset. When you click play, you will choose your dungeon, Race (Elf, Dwarf, Human), and Class (Rogue, Fighter, Wizard). Based on your choices, you will have different attributes (Strength, Dexterity, Constitution, Wisdom, Charisma, Intelligence) and based on those attributes, you will be better or worse at different actions. Due to the random nature of dice, no 2 journeys will be exactly the same, even if you make the same choices. So, hop on in, click play, and pray that the dice gods and RNGesus smile upon you.
 
 Technologies Used: Java 1.8, JDBC (Java Database Connectivity), MongoDB, HTML/CSS/Javascript, AJAX, Spring Boot, Spring MVC, React, Redux, JUnit, log4j.
-Group Name: Thundercats
-Group Members: Rakeon Jerralds (developed frontend application using React and Redux), David Houman (designed the game, contributed game assets, and contributed to backend design and testing), Benjamin Bales (contributed to design and testing of backend Spring boot application, wrote glue code to combine DND API data with backend data to maintain and update game state)
+
 
 
 
@@ -95,7 +94,10 @@ To install the client and server applications, click on the follow links to inst
 
 	
 ## Contributors
-[Benjamin Bales](https://github.com/benjaminbales)
+### Team Thundercats
+- [David Houman](https://github.com/DHouman) - designed the game, contributed game assets, and contributed to backend design and testing.
+- [Benjamin Bales](https://github.com/benjaminbales) - contributed to design and testing of backend Spring boot application, combined DND API data with backend data to maintain and update game state.
+- [Rakeon Jerralds](https://github.com/LORDBLACKSMITH-ray) - developed frontend application using React and Redux.
 
 ## License
 

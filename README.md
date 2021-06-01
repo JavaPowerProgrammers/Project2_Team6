@@ -60,15 +60,8 @@ To install the client and server applications, click on the following links to i
 ![Dungeons Master Home Screen](/DungeonsMasterHome.png?raw=true "Dungeons Master Home Screen")
 
 ## Usage
-//update
-1) Click on the login tab and enter the default manager username and password.  
-2) This will re-direct you to the manager home page where can see an empty table with options to view a list of employees, and pending and resolved reimbursement requests.  
-3) Create an employee using the "register employee" button.  
-4) Then, log out and log back in as an employee.  
-5) You'll see a similar empty table, but now you have a button to create a new reimbursment request.  Click it, submit a request with some arbitrary amount, and log out.  
-6) Log back in as the manager, and verify that you can view both the employee and the pending request by clicking the "Get" buttons in their respective table columns.  
-7) Then, click on the pending request and click the button to approve the request.  
-8) Finally, log out and log back in as the employee and verify that the pending request now appears in the resolved column and not in the pending column. 
+
+The game is fairly self-explanatory.  In the center sub-window, you have several options to choose from, such as "Attack Spider" and "Examine Dead Body in the Corner".  Clicking on any of these options leads to another screen where some interaction occurs.  Throughout the game, you may add items to your inventory.  These can be viewed by clicking on the "Inventory" button on the right hand side below the character stats display.
 
 	
 ## Contributors
